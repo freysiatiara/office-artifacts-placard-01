@@ -32,6 +32,11 @@ def resolve_output_path():
 
 
 def main():
+    text = PLACARD.strip()
+    if not text:
+        raise ValueError("placard must not be blank")
+    if len(PLACARD) > 180:
+        raise ValueError("placard must be at most 180 characters long")
     path = resolve_output_path()
     parent = os.path.dirname(path)
     if parent:
